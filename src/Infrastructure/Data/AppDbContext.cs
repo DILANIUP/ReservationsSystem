@@ -21,5 +21,40 @@ namespace ReservationsSystem.Infrastructure.Data
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<EventVenue> EventVenues { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // ReservationService
+            modelBuilder.Entity<ReservationService>()
+                .HasOne(x => x.Reservation)
+                .WithMany(x => x.ReservationServices)
+                .HasForeignKey(x => x.ReservationId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<ReservationService>()
+                .HasOne(x => x.AdditionalService)
+                .WithMany(x => x.ReservationServices)
+                .HasForeignKey(x => x.AdditionalServiceId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Review
+            modelBuilder.Entity<Review>()
+                .HasOne(x => x.Reservation)
+                .WithOne(x => x.Review)
+                .HasForeignKey<Review>(x => x.ReservationId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Review>()
+                .HasOne(x => x.Resource)
+                .WithMany(x => x.Reviews)
+                .HasForeignKey(x => x.ResourceId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Review>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Reviews)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+                }
     }
 }
