@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d5a3d2a0-a23a-48e6-a769-874487c58cbe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300/storage_v2/_src_/database/reservations.JzbTtw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300/storage_v2/_src_/database/reservations.JzbTtw/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300/storage_v2/_src_/database/reservations.JzbTtw/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/AdditionalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/AdditionalService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/EventVenue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/EventVenue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Hotel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Hotel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/MenuCategory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/MenuItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/MenuItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Reservation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Reservation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/ReservationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/ReservationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Resourse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Restaurant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Restaurant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/RestaurantSchedule.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Review.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Review.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Table.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Table.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/UserProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/UserProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260313232837_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260313232837_InitialCreate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="3AuTMklOX7fUGYTN9xImXztcEOr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dilan/Documents/Proyecto Senior/ReservationsSystem&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
+    ]
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d5a3d2a0-a23a-48e6-a769-874487c58cbe" name="Changes" comment="" />
+      <created>1773441411648</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773441411648</updated>
+    </task>
+    <servers />
+  </component>
+</project>

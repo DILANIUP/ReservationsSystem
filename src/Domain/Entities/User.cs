@@ -2,12 +2,12 @@ namespace ReservationsSystem.Domain.Entities;
 
 public class User
 {
-    public int Id { get; set; }
-    public string Email { get; set; }
-    public string PasswordHash { get; set; }
-    public string Role { get; set; }
+    public Guid Id { get; set; }
+    public required string Email { get; set; }
+    public required string PasswordHash { get; set; }
+    public required string Role { get; set; }
     public DateTime CreatedAt { get; set; }
-    public UserProfile UserProfile { get; set; }
-    public List<Reservation> Reservations { get; set; }
-    public List<Review> Reviews { get; set; }
+    public UserProfile UserProfile { get; set; } = null!;
+    public ICollection<Reservation> Reservations { get; set; } = [];
+    public ICollection<Review> Reviews { get; set; } = []; 
 }

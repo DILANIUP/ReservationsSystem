@@ -2,11 +2,11 @@ namespace ReservationsSystem.Domain.Entities;
 
 public class Table
 {
-    public int Id { get; set; }
-    public int RestaurantId { get; set; }
+    public Guid Id { get; set; }
+    public Guid FlatId { get; set; }
     public int TableNumber { get; set; }
-    public int Capacity { get; set; }
-    public string Location { get; set; }
+    public required int Capacity { get; set; }
+    public required string Location { get; set; }
     public bool IsActive { get; set; }
-    public Restaurant Restaurant { get; set; }
+    public Flat Flat { get; set; } = null!;
 }

@@ -10,7 +10,7 @@
       - "1433:1433"
     volumes:
       - sqlserver_data:/var/opt/mssql
-    restart: unless-stopped
+    restart: always
 
 volumes:
   sqlserver_data:
