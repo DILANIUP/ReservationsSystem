@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d5a3d2a0-a23a-48e6-a769-874487c58cbe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260316235840_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260316235840_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260317001205_FixFlatEntity.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260317001205_FixFlatEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260318221126_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260318221126_InitialCreate.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
