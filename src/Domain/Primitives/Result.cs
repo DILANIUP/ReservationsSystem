@@ -1,3 +1,4 @@
+
 namespace ReservationsSystem.Domain.Primitives;
 
 public class Result
@@ -43,4 +44,6 @@ public class Result<TValue> : Result
     public TValue Value => IsSuccess
         ? _value!
         : throw new InvalidOperationException("Cannot access the value of a failure result.");
+
+    public static implicit operator Result<TValue>(TValue value) => Success(value);
 }

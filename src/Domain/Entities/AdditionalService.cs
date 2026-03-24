@@ -9,7 +9,7 @@ public class AdditionalService
     public required string Name { get; set; }
     public string? Description { get; set; }
     [Column(TypeName = "decimal(10,2)")]
-    public decimal? Price { get; set; }
+    public Money? Price { get; set; }
     public required bool IsFree { get; set; }
     public Resource Resource { get; set; } = null!;
     public ICollection<ReservationService> ReservationServices { get; set; } = [];
