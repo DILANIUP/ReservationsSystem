@@ -80,7 +80,7 @@ public class AdditionalService : AuditableEntity
         if (isFree.HasValue && isFree.Value == false)
         {
             var effectivePrice = price ?? Price; //!important: tiene la opcion de escoger una de las dos opciones en la variable
-            if (effectivePrice is not null)
+            if (effectivePrice is null)
                 return Result.Failure(AdditionalServiceErrors.InvalidPriceForPaidService);
 
             var moneyResult = Money.Create(effectivePrice.Amount, effectivePrice.Currency);
