@@ -33,3 +33,18 @@ public static class MenuErrors
 
     public static readonly Error InvalidName = new ("Menu.InvalidName", "The name of the menu is invalid.");
 }
+
+public static class ReviewErrors
+{
+    public static readonly Error InvalidRating = new ("Review.InvalidRating", "The rating must be between 1 and 5.");
+}
+
+public static class RoleErrors
+{
+    public static readonly Error InvalidName = new ("Role.InvalidName", "The name of the role is invalid.");
+}
+
+public static class ScheduleErrors
+{
+    public static readonly Error InvalidTimeRange = new ("Schedule.InvalidTimeRange", "The open time must be before the close time.");
+}
