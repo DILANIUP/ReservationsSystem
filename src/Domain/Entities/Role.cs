@@ -1,11 +1,10 @@
-using ReservationsSystem.Domain.Entities;
 using ReservationsSystem.Domain.Errors;
 using ReservationsSystem.Domain.Primitives;
-
+namespace ReservationsSystem.Domain.Entities;
 public class Role : AuditableEntity
 {
-    public string Name { get; set; } = null!;
-    public ICollection<User> Users { get; set; } = new List<User>();
+    public string Name { get; private set ; } = null!;
+    public ICollection<User> Users { get; private set; } = new List<User>();
 
 
     private Role(

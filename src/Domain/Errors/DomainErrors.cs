@@ -48,3 +48,27 @@ public static class ScheduleErrors
 {
     public static readonly Error InvalidTimeRange = new ("Schedule.InvalidTimeRange", "The open time must be before the close time.");
 }
+
+public static class TableErrors
+{
+    public static readonly Error InvalidCapacity = new ("Table.InvalidCapacity", "The capacity of the table must be greater than zero.");
+    public static readonly Error InvalidLocation = new ("Table.InvalidLocation", "The location of the table is invalid.");
+    public static readonly Error InvalidTableNumber = new ("Table.InvalidTableNumber", "The table number must be greater than zero.");
+}
+
+public static class UserErrors
+{
+    public static readonly Error InvalidEmail = new ("User.InvalidEmail", "The email address is invalid.");
+    public static readonly Error InvalidPasswordHash = new ("User.InvalidPasswordHash", "The password hash is invalid.");
+    public static readonly Error InvalidRole = new ("User.InvalidRole", "The role is invalid.");
+
+}
+
+public static class UserProfileErrors
+{
+    public static readonly Error InvalidFullName = new ("UserProfile.InvalidFullName", "The full name is invalid.");
+    public static readonly Error InvalidIdentificationNumber = new ("UserProfile.InvalidIdentificationNumber", "The identification number is invalid.");
+    public static readonly Error InvalidIdentificationType = new ("UserProfile.InvalidIdentificationType", "The identification type is invalid.");
+    public static readonly Error InvalidAddress = new ("UserProfile.InvalidAddress", "The address is invalid.");
+    public static readonly Error InvalidCity = new ("UserProfile.InvalidCity", "The city is invalid.");
+}

@@ -5,7 +5,6 @@ namespace ReservationsSystem.Domain.Entities;
 
 public class Flat : Entity
 {
-    public Guid Id { get; set; }
     public Guid RestaurantId { get; set; }
     public int FlatNumber { get; set; }
     public bool IsActive { get; set; }
@@ -19,7 +18,6 @@ public class Flat : Entity
         bool isActive
     ) : base(id)
      {
-        Id = id;
         RestaurantId = restaurantId;
         FlatNumber = flatNumber;
         IsActive = isActive;
@@ -28,7 +26,6 @@ public class Flat : Entity
     private Flat(){}
 
     public static Result<Flat> Create(
-        Guid id,
         Guid restaurantId,
         int flatNumber,
         bool isActive

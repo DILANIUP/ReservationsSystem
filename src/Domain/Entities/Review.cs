@@ -10,7 +10,7 @@ public class Review : AuditableEntity
     public Guid ReservationId { get; set; }
     public int Rating { get; set; }
     public string? Comment { get; set; }
-    public DateTime CreatedAt { get; set; }
+    // public DateTime CreatedAt { get; set; }
     public User User { get; set; } = null!;
     public Resource Resource { get; set; } = null!;
     public Reservation Reservation { get; set; } = null!;
