@@ -44,7 +44,7 @@ public class Menu : AuditableEntity
         if (string.IsNullOrWhiteSpace(name))
             return Result.Failure<Menu>(MenuErrors.InvalidName);
 
-        return Result.Success(new Menu(Guid.NewGuid(), restaurantId, categoryId, name.Trim(), description));
+        return new Menu(Guid.NewGuid(), restaurantId, categoryId, name.Trim(), description);
     }
 
     public Result Update(

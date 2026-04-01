@@ -143,6 +143,8 @@ public static class ResourceErrors
 public static class ReviewErrors
 {
     public static readonly Error InvalidRating = new("Review.InvalidRating", "The rating must be between 1 and 5.");
+    public static readonly Error InvalidUserId = new("Review.InvalidUserId", "The user ID of the review is invalid.");
+    public static readonly Error InvalidResourceId = new("Review.InvalidResourceId", "The resource ID of the review is invalid.");
 }
 
 public static class RoleErrors
@@ -153,10 +155,12 @@ public static class RoleErrors
 public static class ScheduleErrors
 {
     public static readonly Error InvalidTimeRange = new("Schedule.InvalidTimeRange", "The open time must be before the close time.");
+    public static readonly Error InvalidResourceId = new("Schedule.InvalidResourceId", "The resource ID of the schedule is invalid.");
 }
 
 public static class TableErrors
 {
+    public static readonly Error InvalidRestaurantId = new("Table.InvalidRestaurantId", "The restaurant ID of the table is invalid.");
     public static readonly Error InvalidCapacity = new("Table.InvalidCapacity", "The capacity of the table must be greater than zero.");
     public static readonly Error InvalidLocation = new("Table.InvalidLocation", "The location of the table is invalid.");
     public static readonly Error InvalidTableNumber = new("Table.InvalidTableNumber", "The table number must be greater than zero.");

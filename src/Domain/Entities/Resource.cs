@@ -144,5 +144,4 @@ public class Resource : AuditableEntity
         return Result.Success();
     }
     
-    //todo: comentar si vamos a mantener que el resource pueda tener una sola entidad que pertenece
 }

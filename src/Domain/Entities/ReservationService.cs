@@ -41,4 +41,6 @@ public class ReservationService : Entity
 
         return new ReservationService(Guid.NewGuid(), reservationId, additionalServiceId, status);
     }
+    
+    //todo: add method update, delete
 }

@@ -1,5 +1,6 @@
 using ReservationsSystem.Domain.Errors;
 using ReservationsSystem.Domain.Primitives;
+using ReservationsSystem.Domain.ValueObjects;
 
 namespace ReservationsSystem.Domain.Entities;
 
@@ -10,8 +11,7 @@ public class UserProfile : AuditableEntity
     public string? Phone { get; private set; }
     public  string IdentificationNumber { get; private set; } = null!;
     public  string IdentificationType { get; private set; } = null!;
-    public  string Address { get; private set; } = null!;
-    public  string City { get; private set; } = null!;
+    public  Address? Address { get; private set; } = null!;
     public User User { get; private set; } = null!;
 
     private UserProfile(
@@ -21,8 +21,7 @@ public class UserProfile : AuditableEntity
         string? phone,
         string identificationNumber,
         string identificationType,
-        string address,
-        string city
+        Address? address
     ) : base(id)
     {
         UserId = userId;
@@ -31,7 +30,6 @@ public class UserProfile : AuditableEntity
         IdentificationNumber = identificationNumber;
         IdentificationType = identificationType;
         Address = address;
-        City = city;
     }
 
     private UserProfile() { }
@@ -42,9 +40,9 @@ public class UserProfile : AuditableEntity
         string? phone,
         string identificationNumber,
         string identificationType,
-        string address,
-        string city
+        Address? address
     )
+
     {
         if (string.IsNullOrWhiteSpace(fullName))
             return Result.Failure<UserProfile>(UserProfileErrors.InvalidFullName);
@@ -54,14 +52,8 @@ public class UserProfile : AuditableEntity
         
         if (string.IsNullOrWhiteSpace(identificationType))
             return Result.Failure<UserProfile>(UserProfileErrors.InvalidIdentificationType);
-        
-        if (string.IsNullOrWhiteSpace(address))
-            return Result.Failure<UserProfile>(UserProfileErrors.InvalidAddress);
-        
-        if (string.IsNullOrWhiteSpace(city))
-            return Result.Failure<UserProfile>(UserProfileErrors.InvalidCity);
 
-        var userProfile = new UserProfile(Guid.NewGuid(), userId, fullName, phone, identificationNumber, identificationType, address, city);
+        var userProfile = new UserProfile(Guid.NewGuid(), userId, fullName, phone, identificationNumber, identificationType, address);
         return userProfile;
     }
 
@@ -70,8 +62,7 @@ public class UserProfile : AuditableEntity
         string? phone,
         string identificationNumber,
         string identificationType,
-        string address,
-        string city
+        Address address
     )
     {
         if (string.IsNullOrWhiteSpace(fullName))
@@ -82,19 +73,13 @@ public class UserProfile : AuditableEntity
         
         if (string.IsNullOrWhiteSpace(identificationType))
             return Result.Failure(UserProfileErrors.InvalidIdentificationType);
-        
-        if (string.IsNullOrWhiteSpace(address))
-            return Result.Failure(UserProfileErrors.InvalidAddress);
-        
-        if (string.IsNullOrWhiteSpace(city))
-            return Result.Failure(UserProfileErrors.InvalidCity);
+        //todo: validar address y value objects en general en el dominio de cada entidad o en los servicios antes de pasar la data
 
         FullName = fullName.Trim();
         Phone = phone;
         IdentificationNumber = identificationNumber;
         IdentificationType = identificationType;
-        Address = address.Trim();
-        City = city.Trim();
+        Address = address;
 
         return Result.Success();
     }

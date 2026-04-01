@@ -38,6 +38,9 @@ public class Table : AuditableEntity
         bool isActive
     )
     {
+        if (flatId == Guid.Empty)
+            return Result.Failure<Table>(TableErrors.InvalidRestaurantId);
+            
         if (capacity <= 0)
             return Result.Failure<Table>(TableErrors.InvalidCapacity);
 
@@ -75,4 +78,5 @@ public class Table : AuditableEntity
         IsActive = isActive;
         return Result.Success();
     }
+    //todo: delete -> consultar como vamos a gestionar el delte lógico, si es necesario un método específico o simplemente marcar la entidad como inactiva.
 }

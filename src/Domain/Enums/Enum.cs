@@ -21,4 +21,10 @@ namespace ReservationsSystem.Domain.Enums
         Hotel = 2,
         EventVenue = 3
     }
+
+    public enum RoleCode    {
+        Manager = 1,
+        Client = 2,
+        Admin = 3
+    }
 }

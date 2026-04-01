@@ -7,7 +7,6 @@ namespace ReservationsSystem.Domain.Entities;
 public class Restaurant : AuditableEntity
 {
     public Guid ResourceId { get; private set; }
-
     public Resource Resource { get; private set; } = null!;
     public ICollection<Schedule> Schedules { get; private set; } = [];
     public ICollection<Flat> Flats { get; private set; } = [];

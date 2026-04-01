@@ -32,6 +32,8 @@ public class Schedule : AuditableEntity
         TimeOnly closeTime
     )
     {
+        if (resourceId == Guid.Empty)
+            return Result.Failure<Schedule>(ScheduleErrors.InvalidResourceId);
         if (openTime >= closeTime)
             return Result.Failure<Schedule>(ScheduleErrors.InvalidTimeRange);
         

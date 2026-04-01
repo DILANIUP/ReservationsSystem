@@ -8,8 +8,6 @@ public class User : AuditableEntity
 {
     public  Email Email { get; private set; } = null!;
     public string PasswordHash { get; private set; } = null!;
-    // public string Role { get; private set; }
-    // public DateTime CreatedAt { get; private set; }
     public UserProfile UserProfile { get; private set; } = null!;
     public ICollection<Reservation> Reservations { get; private set; } = [];
     public ICollection<Review> Reviews { get; private set; } = []; 
@@ -20,14 +18,10 @@ public class User : AuditableEntity
         Guid id,
         Email email,
         string passwordHash
-        // string role,
-        // DateTime createdAt
     ) : base(id)
      {
         Email = email;
         PasswordHash = passwordHash;
-        // Role = role;
-        // CreatedAt = createdAt;
     }
 
     private User() { }
@@ -63,6 +57,6 @@ public class User : AuditableEntity
         PasswordHash = newPasswordHash;
     }
 
-    
+    //todo: agregar validaciones de contraseña 
     
 }
