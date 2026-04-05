@@ -3,7 +3,7 @@ using ReservationsSystem.Domain.Primitives;
 
 namespace ReservationsSystem.Domain.Entities;
 
-public class Flat : Entity
+public class Flat : AuditableEntity
 {
     public Guid RestaurantId { get; set; }
     public int FlatNumber { get; set; }

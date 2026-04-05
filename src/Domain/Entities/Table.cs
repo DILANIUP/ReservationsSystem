@@ -78,5 +78,4 @@ public class Table : AuditableEntity
         IsActive = isActive;
         return Result.Success();
     }
-    //todo: delete -> consultar como vamos a gestionar el delte lógico, si es necesario un método específico o simplemente marcar la entidad como inactiva.
 }

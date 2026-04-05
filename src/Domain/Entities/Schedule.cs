@@ -3,7 +3,7 @@ using ReservationsSystem.Domain.Primitives;
 
 namespace ReservationsSystem.Domain.Entities;
 
-public class Schedule : AuditableEntity
+public class Schedule : Entity
 {
     public Guid ResourceId { get; private set; }
     public TimeOnly OpenTime { get; private set; }

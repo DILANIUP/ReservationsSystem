@@ -40,12 +40,6 @@ namespace ReservationsSystem.Infrastructure.Data
 
             // Review
             modelBuilder.Entity<Review>()
-                .HasOne(x => x.Reservation)
-                .WithOne(x => x.Review)
-                .HasForeignKey<Review>(x => x.ReservationId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<Review>()
                 .HasOne(x => x.Resource)
                 .WithMany(x => x.Reviews)
                 .HasForeignKey(x => x.ResourceId)

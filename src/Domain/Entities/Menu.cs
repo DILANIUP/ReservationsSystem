@@ -3,11 +3,12 @@ using ReservationsSystem.Domain.Primitives;
 
 namespace ReservationsSystem.Domain.Entities;
 
-public class Menu : AuditableEntity
+public class Menu : Entity
 {
     public Guid RestaurantId { get; private set; }
     public Guid CategoryId { get; private set; }
     public string Name { get; private set; }
+    public bool IsActive { get; private set; }
     public string? Description { get; private set; }
     public Catalogue? Category { get; private set; } = null!;
     public Restaurant Restaurant { get; private set; } = null!;
@@ -18,20 +19,23 @@ public class Menu : AuditableEntity
         Guid restaurantId,
         Guid categoryId,
         string name,
-        string? description
+        string? description,
+        bool isActive
     ) : base(id)
     {
         RestaurantId = restaurantId;
         CategoryId = categoryId;
         Name = name;
         Description = description;
+        IsActive = isActive;
     }
 
     public static Result<Menu> Create(
         Guid restaurantId,
         Guid categoryId,
         string name,
-        string? description
+        string? description,
+        bool isActive = true
     )
     {
 
@@ -44,14 +48,15 @@ public class Menu : AuditableEntity
         if (string.IsNullOrWhiteSpace(name))
             return Result.Failure<Menu>(MenuErrors.InvalidName);
 
-        return new Menu(Guid.NewGuid(), restaurantId, categoryId, name.Trim(), description);
+        return new Menu(Guid.NewGuid(), restaurantId, categoryId, name.Trim(), description,isActive);
     }
 
     public Result Update(
         Guid restaurantId,
         Guid categoryId,
         string name,
-        string? description
+        string? description,
+        bool isActive   
     )
     {
 
@@ -68,6 +73,7 @@ public class Menu : AuditableEntity
         CategoryId = categoryId;
         Name = name.Trim();
         Description = description;
+        IsActive = isActive;
 
         return Result.Success();
     }

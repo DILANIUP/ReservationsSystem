@@ -10,7 +10,6 @@ public class Reservation : AuditableEntity
     public Guid UserId { get; private set; }
     public Guid ResourceId { get; private set; }
     public ReservationSlot ReservationSlot { get; private set; } = null!;
-
     public Money TotalAmount { get; private set; } = null!;
     public Money? AdvancedPayment { get; private set; }
     public int GuestCount { get; private set; }

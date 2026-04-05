@@ -4,7 +4,7 @@ using ReservationsSystem.Domain.ValueObjects;
 
 namespace ReservationsSystem.Domain.Entities;
 
-public class UserProfile : AuditableEntity
+public class UserProfile : Entity
 {
     public Guid UserId { get; private set; }
     public string FullName { get; private set; } = null!;
@@ -73,7 +73,6 @@ public class UserProfile : AuditableEntity
         
         if (string.IsNullOrWhiteSpace(identificationType))
             return Result.Failure(UserProfileErrors.InvalidIdentificationType);
-        //todo: validar address y value objects en general en el dominio de cada entidad o en los servicios antes de pasar la data
 
         FullName = fullName.Trim();
         Phone = phone;

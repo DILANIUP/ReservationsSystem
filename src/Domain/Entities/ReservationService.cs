@@ -35,12 +35,28 @@ public class ReservationService : Entity
     {
         if (reservationId == Guid.Empty)
             return Result.Failure<ReservationService>(ReservationServiceErrors.InvalidReservationId);
-        
+
         if (additionalServiceId == Guid.Empty)
             return Result.Failure<ReservationService>(ReservationServiceErrors.AdditionalServiceId);
 
         return new ReservationService(Guid.NewGuid(), reservationId, additionalServiceId, status);
     }
-    
+
     //todo: add method update, delete
+    public Result Update(AdditionalServiceStatus status)
+    {
+        Status = status;
+        return Result.Success();
+    }
+
+    public bool IsDeleted { get; private set; }
+
+    public Result Delete()
+    {
+        if (IsDeleted)
+            return Result.Failure(ReservationServiceErrors.AlreadyDeleted);
+
+        IsDeleted = true;
+        return Result.Success();
+    }
 }

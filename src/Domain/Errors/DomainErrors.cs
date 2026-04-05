@@ -114,6 +114,10 @@ public static class ReservationServiceErrors
 
     public static readonly Error AdditionalServiceId = new Error("Reservation.AdditionalServiceId",
         "The additional service ID of the reservation service is invalid.");
+
+    public static readonly Error AlreadyDeleted = new Error(
+    "ReservationService.AlreadyDeleted",
+    "The reservation service has already been deleted.");
 }
 
 public static class ResourceErrors

@@ -13,7 +13,6 @@ public class MenuItem: AuditableEntity
     public string? Description { get; private set; }
     public Money Price { get; private set; }
     public bool IsAvailable { get; private set; }
-
     public string? ImageUrl { get; private set; }
 
     // navigation
