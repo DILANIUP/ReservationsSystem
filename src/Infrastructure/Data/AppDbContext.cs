@@ -23,6 +23,7 @@ namespace ReservationsSystem.Infrastructure.Data
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<EventVenue> EventVenues { get; set; }
         public DbSet<ExceptionDate> ExceptionDates { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // ReservationService
