@@ -48,15 +48,4 @@ public class ReservationService : Entity
         Status = status;
         return Result.Success();
     }
-
-    public bool IsDeleted { get; private set; }
-
-    public Result Delete()
-    {
-        if (IsDeleted)
-            return Result.Failure(ReservationServiceErrors.AlreadyDeleted);
-
-        IsDeleted = true;
-        return Result.Success();
-    }
 }

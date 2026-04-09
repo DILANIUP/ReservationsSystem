@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5a3d2a0-a23a-48e6-a769-874487c58cbe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6c69a60-81d0-4c0d-a4f8-28d52bbdd300.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260318032751_InitialSchema.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260318032751_InitialSchema.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/ReservationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/ReservationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Primitives/AuditableEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Primitives/AuditableEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260409232418_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/20260409232418_InitialCreate.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/AdditionalServiceConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/AdditionalServiceConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/ExceptionDateConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/ExceptionDateConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/MenuConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/MenuConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/MenuItemConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/MenuItemConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/ReservationConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/ReservationConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/ScheduleConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/ScheduleConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Configurations/UserConfiguration.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
