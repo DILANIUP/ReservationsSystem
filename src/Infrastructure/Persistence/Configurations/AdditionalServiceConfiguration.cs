@@ -43,10 +43,6 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
             .HasColumnType("bit")
             .IsRequired();
 
-            // builder.HasOne(additionalService => additionalService.Resource)
-            // .WithMany(resource =>)
-
-
         }
     }
 

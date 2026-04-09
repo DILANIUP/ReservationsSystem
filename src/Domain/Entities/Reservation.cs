@@ -17,7 +17,6 @@ public class Reservation : AuditableEntity
     public string? SpecialRequests { get; private set; }
     public User User { get; private set; } = null!;
     public Resource Resource { get; private set; } = null!;
-    public Review? Review { get; private set; } = null!;
     public ICollection<ReservationService> ReservationServices { get; private set; } = [];
 
     private Reservation(
