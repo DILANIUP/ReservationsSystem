@@ -33,25 +33,26 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
                 .IsRequired();
 
 
-            })
+            });
 
             builder.Property(menuItem => menuItem.IsAvailable)
             .HasColumnName("is_available")
             .HasColumnType("bit")
             .IsRequired();
 
-            builder.Property(menuItem => menuItem.Description)
+            builder.Property(menuItem => menuItem.ImageUrl)
             .HasColumnName("image_url")
             .HasColumnType("nvarchar(500)");
 
             builder.HasOne(menuItem => menuItem.Category)
-            .WithMany(category => category.MenuItems)
+            // .WithMany(category => category.MenuItems)
+            .WithMany() //!important: Se cambio a WithMany sin parametros para evitar la navegacion inversa, ya que no se tiene una coleccion de MenuItems en Category
             .HasForeignKey(menuItem => menuItem.CategoryId)
             .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(menuItem => menuItem.Menu)
             .WithMany(menu => menu.MenuItems)
-            .HasForeignKey(menuItem => menuItem.Menu)
+            .HasForeignKey(menuItem => menuItem.MenuId)
             .OnDelete(DeleteBehavior.Cascade);
 
         }

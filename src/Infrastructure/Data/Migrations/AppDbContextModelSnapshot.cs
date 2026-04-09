@@ -28,20 +28,32 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("description");
 
                     b.Property<bool>("IsFree")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("isFree");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("name");
 
                     b.Property<Guid>("ResourceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -57,19 +69,20 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("description");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name");
 
                     b.Property<int?>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("ScheduleId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasColumnName("order");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ScheduleId");
 
                     b.ToTable("Catalogues");
                 });
@@ -113,10 +126,12 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
+                        .HasColumnType("date")
+                        .HasColumnName("date");
 
                     b.Property<string>("Reason")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Reason");
 
                     b.Property<Guid>("ResourceId")
                         .HasColumnType("uniqueidentifier");
@@ -134,13 +149,27 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("FlatNumber")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("flat_number");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("is_active");
 
                     b.Property<Guid>("RestaurantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -186,9 +215,18 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("description");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasColumnName("is_active");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name");
 
                     b.Property<Guid>("RestaurantId")
                         .HasColumnType("uniqueidentifier");
@@ -199,7 +237,7 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
 
                     b.HasIndex("RestaurantId");
 
-                    b.ToTable("Menu");
+                    b.ToTable("Menus");
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.MenuItem", b =>
@@ -211,24 +249,37 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("description");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("image_url");
 
                     b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("is_available");
 
                     b.Property<Guid>("MenuId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -248,26 +299,30 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeOnly>("EndTime")
-                        .HasColumnType("time");
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("GuestCount")
-                        .HasColumnType("int");
-
-                    b.Property<DateOnly>("ReservationDate")
-                        .HasColumnType("date");
+                        .HasColumnType("int")
+                        .HasColumnName("guest_count");
 
                     b.Property<Guid>("ResourceId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("SpecialRequests")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("special_requests");
 
-                    b.Property<TimeOnly>("StartTime")
-                        .HasColumnType("time");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("status");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -290,11 +345,16 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.Property<Guid>("AdditionalServiceId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<Guid>("ReservationId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
@@ -311,29 +371,53 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("description");
+
+                    b.Property<Guid?>("EventVenueId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("HotelId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("is_active");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("name");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasColumnName("phone");
+
+                    b.Property<Guid?>("RestaurantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("type");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("website");
 
                     b.HasKey("Id");
 
@@ -346,19 +430,20 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ResourceId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Website")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -375,18 +460,26 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("comment");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("ReservationId")
+                    b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int")
+                        .HasColumnName("rating");
+
                     b.Property<Guid>("ResourceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
@@ -394,14 +487,44 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ReservationId")
-                        .IsUnique();
-
                     b.HasIndex("ResourceId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("ReservationsSystem.Domain.Entities.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.Schedule", b =>
@@ -411,10 +534,12 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<TimeOnly>("CloseTime")
-                        .HasColumnType("time");
+                        .HasColumnType("time")
+                        .HasColumnName("close_time");
 
                     b.Property<TimeOnly>("OpenTime")
-                        .HasColumnType("time");
+                        .HasColumnType("time")
+                        .HasColumnName("open_time");
 
                     b.Property<Guid>("ResourceId")
                         .HasColumnType("uniqueidentifier");
@@ -438,20 +563,36 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Capacity")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("capacity");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("FlatId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("is_active");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("location");
 
                     b.Property<int>("TableNumber")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("table_number");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -469,17 +610,19 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("password_hash");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -492,28 +635,24 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("full_name");
 
                     b.Property<string>("IdentificationNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("identification_number");
 
                     b.Property<string>("IdentificationType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("identification_type");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(15)")
+                        .HasColumnName("phone");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -526,6 +665,36 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.ToTable("UserProfiles");
                 });
 
+            modelBuilder.Entity("ScheduleCatalogues", b =>
+                {
+                    b.Property<Guid>("DaysOfWeekId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ScheduleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DaysOfWeekId", "ScheduleId");
+
+                    b.HasIndex("ScheduleId");
+
+                    b.ToTable("ScheduleCatalogues");
+                });
+
+            modelBuilder.Entity("UserRoles", b =>
+                {
+                    b.Property<Guid>("RolesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UsersId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("RolesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("UserRoles");
+                });
+
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.AdditionalService", b =>
                 {
                     b.HasOne("ReservationsSystem.Domain.Entities.Resource", "Resource")
@@ -534,14 +703,32 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Resource");
-                });
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Money", "Price", b1 =>
+                        {
+                            b1.Property<Guid>("AdditionalServiceId")
+                                .HasColumnType("uniqueidentifier");
 
-            modelBuilder.Entity("ReservationsSystem.Domain.Entities.Catalogue", b =>
-                {
-                    b.HasOne("ReservationsSystem.Domain.Entities.Schedule", null)
-                        .WithMany("DaysOfWeek")
-                        .HasForeignKey("ScheduleId");
+                            b1.Property<decimal>("Amount")
+                                .HasColumnType("decimal(18,2)")
+                                .HasColumnName("amount");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasMaxLength(3)
+                                .HasColumnType("nvarchar(3)")
+                                .HasColumnName("currency");
+
+                            b1.HasKey("AdditionalServiceId");
+
+                            b1.ToTable("AdditionalServices");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AdditionalServiceId");
+                        });
+
+                    b.Navigation("Price");
+
+                    b.Navigation("Resource");
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.EventVenue", b =>
@@ -593,7 +780,7 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.HasOne("ReservationsSystem.Domain.Entities.Catalogue", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ReservationsSystem.Domain.Entities.Restaurant", "Restaurant")
@@ -611,7 +798,8 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                 {
                     b.HasOne("ReservationsSystem.Domain.Entities.Catalogue", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("ReservationsSystem.Domain.Entities.Menu", "Menu")
                         .WithMany("MenuItems")
@@ -619,9 +807,34 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Money", "Price", b1 =>
+                        {
+                            b1.Property<Guid>("MenuItemId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .HasColumnType("decimal(18,2)")
+                                .HasColumnName("amount");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("char(3)")
+                                .HasColumnName("currency");
+
+                            b1.HasKey("MenuItemId");
+
+                            b1.ToTable("MenuItems");
+
+                            b1.WithOwner()
+                                .HasForeignKey("MenuItemId");
+                        });
+
                     b.Navigation("Category");
 
                     b.Navigation("Menu");
+
+                    b.Navigation("Price")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.Reservation", b =>
@@ -629,16 +842,97 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.HasOne("ReservationsSystem.Domain.Entities.Resource", "Resource")
                         .WithMany("Reservations")
                         .HasForeignKey("ResourceId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ReservationsSystem.Domain.Entities.User", "User")
                         .WithMany("Reservations")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Money", "AdvancedPayment", b1 =>
+                        {
+                            b1.Property<Guid>("ReservationId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasColumnType("decimal(18,2)")
+                                .HasColumnName("amount");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasColumnType("char(3)")
+                                .HasColumnName("currency");
+
+                            b1.HasKey("ReservationId");
+
+                            b1.ToTable("Reservations");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ReservationId");
+                        });
+
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Money", "TotalAmount", b1 =>
+                        {
+                            b1.Property<Guid>("ReservationId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasColumnType("decimal(18,2)")
+                                .HasColumnName("amount");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasColumnType("char(3)")
+                                .HasColumnName("currency");
+
+                            b1.HasKey("ReservationId");
+
+                            b1.ToTable("Reservations");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ReservationId");
+                        });
+
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.ReservationSlot", "ReservationSlot", b1 =>
+                        {
+                            b1.Property<Guid>("ReservationId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<DateOnly>("Date")
+                                .HasColumnType("date")
+                                .HasColumnName("date");
+
+                            b1.Property<TimeOnly>("EndTime")
+                                .HasColumnType("time")
+                                .HasColumnName("end_time");
+
+                            b1.Property<TimeOnly>("StartTime")
+                                .HasColumnType("time")
+                                .HasColumnName("start_time");
+
+                            b1.HasKey("ReservationId");
+
+                            b1.ToTable("Reservations");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ReservationId");
+                        });
+
+                    b.Navigation("AdvancedPayment");
+
+                    b.Navigation("ReservationSlot")
                         .IsRequired();
 
                     b.Navigation("Resource");
+
+                    b.Navigation("TotalAmount")
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -648,18 +942,71 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.HasOne("ReservationsSystem.Domain.Entities.AdditionalService", "AdditionalService")
                         .WithMany("ReservationServices")
                         .HasForeignKey("AdditionalServiceId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ReservationsSystem.Domain.Entities.Reservation", "Reservation")
                         .WithMany("ReservationServices")
                         .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AdditionalService");
 
                     b.Navigation("Reservation");
+                });
+
+            modelBuilder.Entity("ReservationsSystem.Domain.Entities.Resource", b =>
+                {
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Address", "Address", b1 =>
+                        {
+                            b1.Property<Guid>("ResourceId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("city");
+
+                            b1.Property<string>("PostalCode")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("street");
+
+                            b1.HasKey("ResourceId");
+
+                            b1.ToTable("Resources");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ResourceId");
+                        });
+
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Email", "Email", b1 =>
+                        {
+                            b1.Property<Guid>("ResourceId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(150)")
+                                .HasColumnName("value");
+
+                            b1.HasKey("ResourceId");
+
+                            b1.ToTable("Resources");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ResourceId");
+                        });
+
+                    b.Navigation("Address")
+                        .IsRequired();
+
+                    b.Navigation("Email")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.Restaurant", b =>
@@ -675,12 +1022,6 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.Review", b =>
                 {
-                    b.HasOne("ReservationsSystem.Domain.Entities.Reservation", "Reservation")
-                        .WithOne("Review")
-                        .HasForeignKey("ReservationsSystem.Domain.Entities.Review", "ReservationId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("ReservationsSystem.Domain.Entities.Resource", "Resource")
                         .WithMany("Reviews")
                         .HasForeignKey("ResourceId")
@@ -692,8 +1033,6 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("Reservation");
 
                     b.Navigation("Resource");
 
@@ -726,6 +1065,30 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.Navigation("Flat");
                 });
 
+            modelBuilder.Entity("ReservationsSystem.Domain.Entities.User", b =>
+                {
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Email", "Email", b1 =>
+                        {
+                            b1.Property<Guid>("UserId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("value");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("Email")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.UserProfile", b =>
                 {
                     b.HasOne("ReservationsSystem.Domain.Entities.User", "User")
@@ -734,7 +1097,65 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.OwnsOne("ReservationsSystem.Domain.ValueObjects.Address", "Address", b1 =>
+                        {
+                            b1.Property<Guid>("UserProfileId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("city");
+
+                            b1.Property<string>("PostalCode")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("street");
+
+                            b1.HasKey("UserProfileId");
+
+                            b1.ToTable("UserProfiles");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserProfileId");
+                        });
+
+                    b.Navigation("Address");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ScheduleCatalogues", b =>
+                {
+                    b.HasOne("ReservationsSystem.Domain.Entities.Catalogue", null)
+                        .WithMany()
+                        .HasForeignKey("DaysOfWeekId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ReservationsSystem.Domain.Entities.Schedule", null)
+                        .WithMany()
+                        .HasForeignKey("ScheduleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("UserRoles", b =>
+                {
+                    b.HasOne("ReservationsSystem.Domain.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ReservationsSystem.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.AdditionalService", b =>
@@ -755,8 +1176,6 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.Reservation", b =>
                 {
                     b.Navigation("ReservationServices");
-
-                    b.Navigation("Review");
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.Resource", b =>
@@ -783,11 +1202,6 @@ namespace ReservationsSystem.src.Infrastructure.Data.Migrations
                     b.Navigation("Menus");
 
                     b.Navigation("Schedules");
-                });
-
-            modelBuilder.Entity("ReservationsSystem.Domain.Entities.Schedule", b =>
-                {
-                    b.Navigation("DaysOfWeek");
                 });
 
             modelBuilder.Entity("ReservationsSystem.Domain.Entities.User", b =>

@@ -29,6 +29,7 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
             builder.HasMany(schedule => schedule.DaysOfWeek)
             .WithMany()
             .UsingEntity("ScheduleCatalogues");
+            
                                 
 
         }

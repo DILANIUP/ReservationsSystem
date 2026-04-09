@@ -18,9 +18,13 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
 
             builder.Property(exceptionDate => exceptionDate.Reason)      
             .HasColumnName("Reason")
-            .HasColumnType("int");
+            .HasColumnType("nvarchar(100)");
 
-            
+            builder.HasOne(exceptionDate => exceptionDate.Resource)
+            .WithMany(resource => resource.ExceptionDates)
+            .HasForeignKey(exceptionDate => exceptionDate.ResourceId)
+            .OnDelete(DeleteBehavior.Cascade);
+
 
         }
     }   

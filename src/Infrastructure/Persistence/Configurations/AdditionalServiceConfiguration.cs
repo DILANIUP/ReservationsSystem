@@ -43,6 +43,11 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
             .HasColumnType("bit")
             .IsRequired();
 
+            builder.HasOne(additionalService => additionalService.Resource)
+            .WithMany(resource => resource.AdditionalServices)
+            .HasForeignKey(additionalService => additionalService.ResourceId)
+            .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 

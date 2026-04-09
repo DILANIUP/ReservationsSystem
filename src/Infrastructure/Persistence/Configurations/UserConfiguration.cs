@@ -33,6 +33,8 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
             builder.HasMany(user => user.Roles)
             .WithMany(role => role.Users)
             .UsingEntity("UserRoles");
+
+            
         }
     }   
 

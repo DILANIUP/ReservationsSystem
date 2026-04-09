@@ -49,12 +49,12 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
                 advancedPayment.Property(ap => ap.Amount)
                 .HasColumnName("amount")
                 .HasColumnType("decimal(18,2)")
-                .IsRequired(false);
+                .IsRequired();
 
                 advancedPayment.Property(ap => ap.Currency)
                 .HasColumnName("currency")
                 .HasColumnType("char(3)")
-                .IsRequired(false);
+                .IsRequired();
 
             });
 
