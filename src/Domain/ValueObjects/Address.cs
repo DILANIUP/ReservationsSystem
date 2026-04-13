@@ -26,7 +26,7 @@ public sealed class Address : IEquatable<Address>
         if (string.IsNullOrWhiteSpace(city))
             return Result.Failure<Address>(new Error("Address.EmptyCity", "City cannot be empty."));
 
-        return new Address(street.Trim(), city.Trim(), postalCode.Trim());
+        return new Address(street.Trim(), city.Trim(), postalCode?.Trim());
     }
 
     public bool Equals(Address? other) =>

@@ -175,9 +175,11 @@ public static class UserErrors
     public static readonly Error InvalidEmail = new("User.InvalidEmail", "The email address is invalid.");
     public static readonly Error InvalidPasswordHash = new("User.InvalidPasswordHash", "The password hash is invalid.");
     public static readonly Error InvalidRole = new("User.InvalidRole", "The role is invalid.");
-
+    public static readonly Error EmailAlreadyInUse = new("User.EmailAlreadyInUse", "This email is already registered.");
+    public static readonly Error InvalidCredentials = new("User.InvalidCredentials", "Email or password is incorrect.");
+    public static readonly Error NotFound = new("User.NotFound", "User was not found.");
+    public static readonly Error InvalidRefreshToken = new("User.InvalidRefreshToken", "Refresh token is invalid or expired.");
 }
-
 public static class UserProfileErrors
 {
     public static readonly Error InvalidFullName = new("UserProfile.InvalidFullName", "The full name is invalid.");

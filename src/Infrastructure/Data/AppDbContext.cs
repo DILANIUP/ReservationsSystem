@@ -1,10 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using ReservationsSystem.Domain.Entities;
+using ReservationsSystem.Domain.Interfaces;
 using ReservationsSystem.Domain.Primitives;
 
 namespace ReservationsSystem.Infrastructure.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext, IUnitOfWork
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options) { }
@@ -26,6 +27,7 @@ namespace ReservationsSystem.Infrastructure.Data
         public DbSet<Table> Tables { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,8 +38,7 @@ namespace ReservationsSystem.Infrastructure.Data
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             UpdateAuditFields();
-            var result = await base.SaveChangesAsync(cancellationToken);
-            return result;
+            return await base.SaveChangesAsync(cancellationToken);
         }
 
         private void UpdateAuditFields()

@@ -6,11 +6,11 @@ namespace ReservationsSystem.Domain.Entities;
 
 public class User : AuditableEntity
 {
-    public  Email Email { get; private set; } = null!;
+    public Email Email { get; private set; } = null!;
     public string PasswordHash { get; private set; } = null!;
     public UserProfile UserProfile { get; private set; } = null!;
     public ICollection<Reservation> Reservations { get; private set; } = [];
-    public ICollection<Review> Reviews { get; private set; } = []; 
+    public ICollection<Review> Reviews { get; private set; } = [];
     public ICollection<Role> Roles { get; private set; } = [];
 
 
@@ -19,7 +19,7 @@ public class User : AuditableEntity
         Email email,
         string passwordHash
     ) : base(id)
-     {
+    {
         Email = email;
         PasswordHash = passwordHash;
     }
@@ -31,14 +31,10 @@ public class User : AuditableEntity
         string passwordHash
     )
     {
-        var emailResult = Email.Create(email.Value);
-        if (emailResult.IsFailure)
-            return Result.Failure<User>(UserErrors.InvalidEmail);
-
         if (string.IsNullOrWhiteSpace(passwordHash))
             return Result.Failure<User>(UserErrors.InvalidPasswordHash);
 
-        var user = new User(Guid.NewGuid(), emailResult.Value, passwordHash);
+        var user = new User(Guid.NewGuid(), email, passwordHash);
         return user;
     }
 
@@ -58,5 +54,6 @@ public class User : AuditableEntity
     }
 
     //todo: agregar validaciones de contraseña 
-    
+
 }
+
