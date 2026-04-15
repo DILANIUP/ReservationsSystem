@@ -1,5 +1,4 @@
 using ReservationsSystem.Domain.Entities;
-using ReservationsSystem.src.Domain.Entities;
 
 namespace ReservationsSystem.Domain.Interfaces
 {
