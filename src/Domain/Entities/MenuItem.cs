@@ -9,9 +9,9 @@ public class MenuItem: AuditableEntity
 {
     public Guid MenuId { get; private set; }
     public Guid? CategoryId { get; private set; }
-    public string Name { get; private set; }
+    public string Name { get; private set; } = null!;
     public string? Description { get; private set; }
-    public Money Price { get; private set; }
+    public Money Price { get; private set; } = null!;
     public bool IsAvailable { get; private set; }
     public string? ImageUrl { get; private set; }
 

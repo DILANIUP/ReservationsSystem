@@ -55,7 +55,7 @@ public class Flat : AuditableEntity
 
         RestaurantId = restaurantId;
         FlatNumber = flatNumber;
-        isActive = isActive;
+        IsActive = isActive;
 
         return Result.Success();    
     }

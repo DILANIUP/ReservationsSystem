@@ -13,7 +13,7 @@ namespace ReservationsSystem.Infrastructure.Persistence.Configurations
 
             builder.Property(user => user.PasswordHash)
             .HasColumnName("password_hash")
-            .HasColumnType("nvarchar(50)")
+            .HasColumnType("nvarchar(255)")
             .IsRequired();
 
 

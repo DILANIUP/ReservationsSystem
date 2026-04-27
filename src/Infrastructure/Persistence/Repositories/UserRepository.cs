@@ -6,7 +6,7 @@ using ReservationsSystem.Infrastructure.Data;
 public sealed class UserRepository(AppDbContext db) : IUserRepository
 {
 
-    public void Create(User user) => db.Users.Add(user);
+    public void Add(User user) => db.Users.Add(user);
 
     public async Task<bool> ExistsByEmailAsync(string email, CancellationToken ct = default) =>
         await db.Users.AnyAsync(u => u.Email.Value == email, ct);
