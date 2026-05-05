@@ -57,10 +57,20 @@ namespace ReservationsSystem.Application.Features.Auth
                 return Result.Failure<RegisterResponse>(userProfileResult.Error);
 
             userRepository.Add(userResult.Value);
-            userProfileRepository.Create(userProfileResult.Value);
+            userProfileRepository.Add(userProfileResult.Value);
+
+            var accessToken = tokenService.GenerateAccessToken(userResult.Value);
+            var refreshTokenValue =tokenService.GenerateRefreshToken();
+
+            var refreshToken = RefreshToken.Create(
+                userResult.Value.Id,
+                refreshTokenValue,
+                DateTime.UtcNow.AddDays(7));
+            
+            refreshTokenRepository.Add(refreshToken);
             await unitOfWork.SaveChangesAsync(ct);
 
-            return new RegisterResponse(userResult.Value.Id, userResult.Value.Email.Value, userProfileResult.Value.FullName);
+            return new RegisterResponse(userResult.Value.Id, accessToken, refreshTokenValue);
         }
 
 
@@ -88,7 +98,7 @@ namespace ReservationsSystem.Application.Features.Auth
                 refreshTokenValue,
                 DateTime.UtcNow.AddDays(7));
             
-            refreshTokenRepository.Create(refreshToken);
+            refreshTokenRepository.Add(refreshToken);
             await unitOfWork.SaveChangesAsync(ct);
             return new LoginResponse(user.Id,accessToken,refreshTokenValue);
 

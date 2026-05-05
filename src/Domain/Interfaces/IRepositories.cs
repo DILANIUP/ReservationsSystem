@@ -2,13 +2,13 @@ using ReservationsSystem.Domain.Entities;
 
 namespace ReservationsSystem.Domain.Interfaces
 {
-    public interface IRepository
+    public interface IRepository<T> where T : class
     {
-        Task<User?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        void Add(User user);
+        Task<T?> GetByIdAsync(Guid id, CancellationToken ct = default);
+        void Add(T entity);
         // void Update(User user);
     }
-    public interface IUserRepository : IRepository
+    public interface IUserRepository : IRepository<User>
     {
         // Task<User?> GetByIdAsync(Guid id, CancellationToken ct = default);
         Task<User?> GetByEmailAsync(string email, CancellationToken ct = default);
@@ -20,13 +20,13 @@ namespace ReservationsSystem.Domain.Interfaces
     public interface IUserProfileRepository
     {
         Task<UserProfile?> GetByUserIdAsync(Guid userId, CancellationToken ct = default);
-        void Create(UserProfile userProfile);
+        void Add(UserProfile userProfile);
     }
 
     public interface IRefreshTokenRepository
     {
         Task<RefreshToken?> GetByTokenAsync(string token, CancellationToken ct = default);
-        void Create(RefreshToken refreshToken);
+        void Add(RefreshToken refreshToken);
         void Delete(RefreshToken refreshToken);
     }
 
@@ -34,7 +34,7 @@ namespace ReservationsSystem.Domain.Interfaces
     public interface IAdditionalServiceRepository
     {
         Task<AdditionalService?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        void Create(AdditionalService additionalService);
+        void Add(AdditionalService additionalService);
         void Update(AdditionalService additionalService);
     }
 

@@ -5,7 +5,7 @@ using ReservationsSystem.Infrastructure.Data;
 
 public sealed class UserProfileRepository(AppDbContext db) : IUserProfileRepository
 {
-    public void Create(UserProfile userProfile)
+    public void Add(UserProfile userProfile)
     {
         db.UserProfiles.Add(userProfile);
     }

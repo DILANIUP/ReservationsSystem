@@ -16,7 +16,7 @@ namespace ReservationsSystem.Infrastructure.Persistence.Repositories
              await _db.AdditionalServices.FirstOrDefaultAsync(additionalService => additionalService.Id == id, ct);
 
 
-        public void Create(AdditionalService additionalService) =>
+        public void Add(AdditionalService additionalService) =>
              _db.AdditionalServices.Add(additionalService);
 
 

@@ -13,9 +13,9 @@ public sealed record RegisterRequest(
     string? PostalCode);
 
 public sealed record RegisterResponse(
-    Guid UserId,
-    string Email,
-    string Fullname
+   Guid UserId,
+    string AccessToken,
+    string RefreshToken
 );
 
 public sealed record LoginRequest(
